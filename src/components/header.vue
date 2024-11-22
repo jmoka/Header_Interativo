@@ -6,9 +6,10 @@
     prominent
   >
   
-    <v-btn icon :color="colorIcoMenu">
+    <!-- <v-btn icon :color="colorIcoMenu">
       <svg-icon type="mdi" :path="mdiMenu"></svg-icon>
-    </v-btn>
+    </v-btn> -->
+    <bottomSheets/>
     <v-img :src="'/logo.webp'" :max-height="altLogo" :max-width="lagLogo"></v-img>
     <v-spacer class="d-flex justify-center">
       <h2 :class="colorObs">{{ obs }}</h2>
@@ -68,11 +69,13 @@ import {
   mdiMenu,
 } from '@mdi/js';
 import dialogFormLogin from '@/components/dialogFormLogin.vue';
+import bottomSheets from "@/components/bottomSheets.vue"
 
 export default {
   components: {
     SvgIcon,
     dialogFormLogin,
+    bottomSheets,
   },
 
   props: {
@@ -94,7 +97,7 @@ export default {
       colorIcoMenu: "red",
       colorIcoHome: "blue",
       obs: "Contabilidade Digital",
-      imageHeader:true,
+      imageHeader:false,
       colorBarra: "bg-black",
       colorText: "text-blue",
       altLogo: "70",
