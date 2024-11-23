@@ -1,55 +1,36 @@
-<template> 
-  <v-toolbar   
-    :class="colorBarra"
-    flat    
-    :image=imagemfundoBarra  
-    prominent
-  >
-  
+<template>
+  <v-toolbar :class="colorBarra" flat :image="imagemfundoBarra" prominent>
     <!-- <v-btn icon :color="colorIcoMenu">
       <svg-icon type="mdi" :path="mdiMenu"></svg-icon>
     </v-btn> -->
-    <bottomSheets/>
-    <v-img :src="'/logo.webp'" :max-height="altLogo" :max-width="lagLogo"></v-img>
+    <bottomSheets />
+    <v-img v-once :src="logo" :max-height="altLogo" :max-width="lagLogo"></v-img>
     <v-spacer class="d-flex justify-center">
       <h2 :class="colorObs">{{ obs }}</h2>
     </v-spacer>
 
-    <v-btn 
-    to="/"
-    :color="colorIcoHome"
-    >
+    <v-btn v-once to="/" :color="colorIcoHome">
       <svg-icon type="mdi" :path="mdiHomeAccount"></svg-icon>
-     Home
+      Home
     </v-btn>
 
-    <v-btn 
-    to="/contatos"
-    :color="colorIconeContato">
+    <v-btn v-once to="/contatos" :color="colorIconeContato">
       <svg-icon type="mdi" :path="mdiCardAccountMail"></svg-icon>
       Contatos
     </v-btn>
 
-    <v-btn 
-    :color="colorIconeInforme"
-    to="/sobre"
-    
-    >
+    <v-btn v-once :color="colorIconeInforme" to="/sobre">
       <svg-icon type="mdi" :path="mdiInformation"></svg-icon>
       <span>Sobre Nós</span>
+    </v-btn>
 
-    </v-btn>   
-          
-      <dialogFormLogin  :colorIconeLogin="colorIconeLogin" :colorTextLogin="colorTextLogin"/>     
- 
+    <dialogFormLogin
+      :colorIconeLogin="colorIconeLogin"
+      :colorTextLogin="colorTextLogin"
+    />
 
-    <v-btn 
-    icon :color="colorIconeWhatsapp"
-    :href=linkWhatsapp
-    target="blank"
-    >
+    <v-btn v-once icon :color="colorIconeWhatsapp" :href="linkWhatsapp" target="blank">
       <svg-icon type="mdi" :path="mdiWhatsapp"></svg-icon>
-      
     </v-btn>
   </v-toolbar>
 
@@ -59,7 +40,7 @@
 </template>
 
 <script>
-import SvgIcon from '@jamescoyle/vue-icon';
+import SvgIcon from "@jamescoyle/vue-icon";
 import {
   mdiAccount,
   mdiHomeAccount,
@@ -67,9 +48,9 @@ import {
   mdiInformation,
   mdiWhatsapp,
   mdiMenu,
-} from '@mdi/js';
-import dialogFormLogin from '@/components/dialogFormLogin.vue';
-import bottomSheets from "@/components/bottomSheets.vue"
+} from "@mdi/js";
+import dialogFormLogin from "@/components/dialogFormLogin.vue";
+import bottomSheets from "@/components/bottomSheets.vue";
 
 export default {
   components: {
@@ -88,21 +69,21 @@ export default {
 
   data() {
     return {
-      numeroWhatsApp:"5591996293532",      
+      numeroWhatsApp: "559999999999",
       colorIconeWhatsapp: "green",
       colorIconeLogin: "red",
-      colorTextLogin:"text-red",
+      colorTextLogin: "text-red",
       colorIconeContato: "yellow",
       colorIconeInforme: "#AB47BC",
       colorIcoMenu: "red",
       colorIcoHome: "blue",
       obs: "Contabilidade Digital",
-      imageHeader:false,
+      imageHeader: false,
       colorBarra: "bg-black",
       colorText: "text-blue",
       altLogo: "70",
       lagLogo: "300",
-      // logo: "/logo.webp",
+      logo: "/logo.webp",
       mdiAccount: mdiAccount,
       mdiHomeAccount: mdiHomeAccount,
       mdiCardAccountMail: mdiCardAccountMail,
@@ -113,22 +94,17 @@ export default {
       titulo: "Contadores Associados",
     };
   },
-  computed:{
-    linkWhatsapp(){
+  computed: {
+    linkWhatsapp() {
       return `https://wa.me/${this.numeroWhatsApp}?text=suporte`;
     },
-    imagemfundoBarra(){
-
-      if(this.imageHeader){
-        return  "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
-
-      }else{
-
-        this.imageHeader=null
-        
+    imagemfundoBarra() {
+      if (this.imageHeader) {
+        return "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg";
+      } else {
+        this.imageHeader = null;
       }
-      
-    }
-  }
+    },
+  },
 };
 </script>
