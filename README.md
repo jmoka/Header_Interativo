@@ -1,29 +1,63 @@
-# mod1_contabil_vue3
+# Header com Paginação e Adição dos Componentes
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
+## Configuração do projeto
 ```sh
-npm install
+instalação npm
 ```
-
-### Compile and Hot-Reload for Development
+### Compilar Desenvolvimento
 
 ```sh
 npm run dev
 ```
-
-### Compile and Minify for Production
-
+### Compilar Produção
 ```sh
 npm run build
 ```
+
+# Tecnologia
+- JavaScript
+- Vue.js
+- VueRouter
+- Vuetify
+
+# Sobre o Projeto
+- O projeto é consistem um um header com paginação e edição de seus componentes, com menu de configuração e login.
+
+# O que está Faltando
+- Fantando as configurações de autenticaação
+- As paginas
+- Configuração dos formularios de troca dos componentes
+
+# Configuração
+- A configuração é feita toda no componente header.vue
+
+```
+ data() {
+    return {
+      numeroWhatsApp: "559999999999",
+      colorIconeWhatsapp: "green",
+      colorIconeLogin: "red",
+      colorTextLogin: "text-red",
+      colorIconeContato: "yellow",
+      colorIconeInforme: "#AB47BC",
+      colorIcoMenu: "red",
+      colorIcoHome: "blue",
+      obs: "Contabilidade Digital",
+      imageHeader: false,
+      colorBarra: "bg-black",
+      colorText: "text-blue",
+      altLogo: "70",
+      lagLogo: "300",
+      logo: "/logo.webp",
+      mdiAccount: mdiAccount,
+      mdiHomeAccount: mdiHomeAccount,
+      mdiCardAccountMail: mdiCardAccountMail,
+      mdiInformation: mdiInformation,
+      mdiWhatsapp: mdiWhatsapp,
+      mdiMenu: mdiMenu,
+      tabs: null,
+      titulo: "Contadores Associados",
+    };
+  },
+```
+
