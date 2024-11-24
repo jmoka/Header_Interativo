@@ -34,9 +34,9 @@
 </template>
 
 <script>
-import DialogFormTrocarTextes from "@/components/DialogFormTrocarTextes.vue";
-import DialogTrocarImagem from "@/components/DialogTrocarImagem.vue";
-import DialogTrocarIcones from "@/components/dialogTrocarIcones.vue";
+import DialogFormTrocarTextes from "../../src/components/DialogFormTrocarTextes.vue";
+import DialogTrocarImagem from "../../src/components/DialogTrocarImagem.vue";
+import DialogTrocarIcones from "../../src/components/dialogTrocarIcones.vue";
 import {
   mdiAccountBoxEditOutline,
   mdiAccount,

@@ -1,32 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 // Importando componentes
-import HomeView from '../views/index.vue'; // Ajuste o caminho do seu componente
-import SobreView from '../views/sobre.vue'; // Ajuste o caminho do seu componente
- import ContatosView from "../views/contatos.vue"; // Ajuste o caminho do seu componente
+import HomeView from '../views/index.vue'; // Certifique-se de que o caminho está correto
+import SobreView from '../views/sobre.vue';
+import ContatosView from '../views/contatos.vue';
 
-// Criando as rotas
+// Configurando as rotas
 const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: HomeView, // Componente associado à rota
-  },
-  {
-    path: '/sobre',
-    name: 'sobre',
-    component: SobreView,
-  },
-  {
-    path: '/contatos',
-    name: 'contatos',
-    component: ContatosView,
-  },
+  { path: '/', name: 'home', component: HomeView },
+  { path: '/sobre', name: 'sobre', component: SobreView },
+  { path: '/contatos', name: 'contatos', component: ContatosView },
 ];
 
-// Criando e exportando o router
+// Criando o router
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
 });
 

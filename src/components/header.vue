@@ -49,8 +49,8 @@ import {
   mdiWhatsapp,
   mdiMenu,
 } from "@mdi/js";
-import dialogFormLogin from "@/components/dialogFormLogin.vue";
-import bottomSheets from "@/components/bottomSheets.vue";
+import dialogFormLogin from "../../src/components/dialogFormLogin.vue";
+import bottomSheets from "../../src/components/bottomSheets.vue";
 
 export default {
   components: {
@@ -83,7 +83,7 @@ export default {
       colorText: "text-blue",
       altLogo: "70",
       lagLogo: "300",
-      logo: "/logo.webp",
+      logo: "../../public/logo.webp",
       mdiAccount: mdiAccount,
       mdiHomeAccount: mdiHomeAccount,
       mdiCardAccountMail: mdiCardAccountMail,
