@@ -1,42 +1,45 @@
 <template>
   <v-toolbar :class="colorBarra" flat :image="imagemfundoBarra" prominent>
-    <!-- <v-btn icon :color="colorIcoMenu">
-      <svg-icon type="mdi" :path="mdiMenu"></svg-icon>
-    </v-btn> -->
-    <bottomSheets />
+    <!-- Menu -->
+
+    <bottomSheets :colorIconeMenu="colorIconeMenu" />
+
+    <!-- Logo -->
     <v-img v-once :src="logo" :max-height="altLogo" :max-width="lagLogo"></v-img>
-    <v-spacer class="d-flex justify-center">
-      <h2 :class="colorObs">{{ obs }}</h2>
+
+    <!-- Texto Central -->
+    <v-spacer v-if="!visibleObs"></v-spacer>
+    <v-spacer v-if="visibleObs" class="d-flex justify-left">
+      <h4 :class="colorObs" v-text="obs"></h4>
     </v-spacer>
 
-    <v-btn v-once to="/" :color="colorIcoHome">
-      <svg-icon type="mdi" :path="mdiHomeAccount"></svg-icon>
-      Home
+    <!-- Botões de Navegação -->
+    <v-btn v-once to="/">
+      <svg-icon :color="colorIcoHome" type="mdi" :path="mdiHomeAccount"></svg-icon>
+      <h4 :class="colorAba1" v-text="textoAba1"></h4>
     </v-btn>
 
     <v-btn v-once to="/contatos" :color="colorIconeContato">
       <svg-icon type="mdi" :path="mdiCardAccountMail"></svg-icon>
-      Contatos
+      <h4 :class="colorAba2" v-text="textoAba2"></h4>
     </v-btn>
 
     <v-btn v-once :color="colorIconeInforme" to="/sobre">
       <svg-icon type="mdi" :path="mdiInformation"></svg-icon>
-      <span>Sobre Nós</span>
+      <h4 :class="colorAba3" v-text="textoAba3"></h4>
     </v-btn>
 
+    <!-- Botão de Login -->
     <dialogFormLogin
       :colorIconeLogin="colorIconeLogin"
       :colorTextLogin="colorTextLogin"
     />
 
-    <v-btn v-once icon :color="colorIconeWhatsapp" :href="linkWhatsapp" target="blank">
+    <!-- WhatsApp -->
+    <v-btn v-once icon :color="colorIconeWhatsapp" :href="linkWhatsapp" target="_blank">
       <svg-icon type="mdi" :path="mdiWhatsapp"></svg-icon>
     </v-btn>
   </v-toolbar>
-
-  <v-card flat>
-    <v-card-text :v-text="text"></v-card-text>
-  </v-card>
 </template>
 
 <script>
@@ -69,29 +72,45 @@ export default {
 
   data() {
     return {
-      numeroWhatsApp: "559999999999",
-      colorIconeWhatsapp: "green",
-      colorIconeLogin: "red",
-      colorTextLogin: "text-red",
-      colorIconeContato: "yellow",
-      colorIconeInforme: "#AB47BC",
-      colorIcoMenu: "red",
+      // Textos Dinâmicos
+      textoAba1: "Home",
+      textoAba2: "Contatos",
+      textoAba3: "Sobre Nós",
+      visibleObs: true,
+      obs: "empresa@gmail.com / (91)9 9629-3532",
+
+      // Cores Dinâmicas
+      colorAba1: "text-white",
+      colorAba2: "text-white",
+      colorAba3: "text-white",
       colorIcoHome: "blue",
-      obs: "Contabilidade Digital",
-      imageHeader: false,
+      colorIconeMenu: "blue",
+      colorIconeWhatsapp: "green",
+      colorIconeLogin: "blue",
+      colorTextLogin: "#AB47BC",
+      colorIconeContato: "blue",
+      colorIconeInforme: "blue",
       colorBarra: "bg-black",
-      colorText: "text-blue",
+
+      // Imagem e Logo
+      logo: "logo.webp",
       altLogo: "70",
       lagLogo: "300",
-      logo: "../../public/logo.webp",
+      imageHeader: false,
+
+      // WhatsApp
+      numeroWhatsApp: "559999999999",
+
+      // Ícones MDI
       mdiAccount: mdiAccount,
       mdiHomeAccount: mdiHomeAccount,
       mdiCardAccountMail: mdiCardAccountMail,
       mdiInformation: mdiInformation,
       mdiWhatsapp: mdiWhatsapp,
       mdiMenu: mdiMenu,
-      tabs: null,
-      titulo: "Contadores Associados",
+
+      // Título
+      titulo: "Header Reative",
     };
   },
   computed: {
@@ -99,11 +118,9 @@ export default {
       return `https://wa.me/${this.numeroWhatsApp}?text=suporte`;
     },
     imagemfundoBarra() {
-      if (this.imageHeader) {
-        return "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg";
-      } else {
-        this.imageHeader = null;
-      }
+      return this.imageHeader
+        ? "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+        : null;
     },
   },
 };

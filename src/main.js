@@ -17,7 +17,7 @@ const vuetify = createVuetify({
   components,
   directives,
   theme: {
-    defaultTheme: 'dark', // Define o tema padrão (opcional)
+    defaultTheme: 'light', // Define o tema padrão (opcional)
   },
 });
 

@@ -2,7 +2,7 @@
   <v-bottom-sheet v-model="sheet">
     <template v-slot:activator="{ props }">
       <div class="text-center">
-        <v-btn v-bind="props" color="purple" size="x-large"> Menu </v-btn>
+        <v-btn v-bind="props" :color="colorIconeMenu" size="x-large"> Menu </v-btn>
       </div>
     </template>
 
@@ -47,6 +47,11 @@ import {
 import SvgIcon from "@jamescoyle/vue-icon";
 
 export default {
+  props: {
+    colorIconeMenu: {
+      type: String,
+    },
+  },
   components: {
     DialogFormTrocarTextes,
     DialogTrocarImagem,
